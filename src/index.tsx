@@ -48,7 +48,6 @@ createServer({
       return schema.create('transaction', data)
     })
   }
-
 })
 
 const root = ReactDOM.createRoot(
