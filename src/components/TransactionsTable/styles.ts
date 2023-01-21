@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.div`
   margin-top: 4rem;
@@ -43,10 +44,11 @@ export const Container = styled.div`
         right: 0;
         cursor: pointer;
         background: none;
-        transition: filter 0.3s;
+        transition: filter 0.3s, background 0.3s;
 
         &:hover {
-          filter: brightness(0.7);
+          filter: brightness(0.9);
+          background: ${darken(0.1, "#fff")};
         }
       }
     }

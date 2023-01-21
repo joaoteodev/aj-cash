@@ -25,10 +25,21 @@ export const Container = styled.div`
       font-weight: 500;
       line-height: 3rem;
     }
+  }
+`;
 
-    &.highlight-background {
-      background: var(--green);
-      color: #fff;
-    }
+interface totalContainerProps {
+  status: boolean;
+}
+
+const colors = {
+  green: "#33CC95",
+  red: "#e52e4d"
+};
+
+export const TotalContainer = styled.div<totalContainerProps>`
+  &.highlight-background {
+    background: ${props => (props.status === true ? colors.green : colors.red)};
+    color: #fff;
   }
 `;

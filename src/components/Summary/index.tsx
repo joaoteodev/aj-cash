@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import incomeImg from "../../assets/in.svg";
 import outcomeImg from "../../assets/out.svg";
 import totalImg from "../../assets/total.svg";
 import { useTransactions } from "../../hooks/useTransactions";
 
-import { Container } from "./styles";
+import { Container, TotalContainer } from "./styles";
 
 export function Summary() {
+  const [status, setStatus] = useState(true)
   const { transactions } = useTransactions();
 
   const summary = transactions.reduce((acc, transaction) => {
@@ -25,6 +26,14 @@ export function Summary() {
     withdraws: 0,
     total: 0
   })
+
+  useEffect(() => {
+    if(summary.total >= 0) {
+      setStatus(true)
+    } else {
+      setStatus(false)
+    }
+  }, [summary.total])
 
   return (
     <Container>
@@ -48,7 +57,7 @@ export function Summary() {
                   currency: "BRL"
               }).format(summary.withdraws)}</strong>
       </div>
-      <div className="highlight-background">
+      <TotalContainer className="highlight-background" status={status}>
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
@@ -57,7 +66,7 @@ export function Summary() {
                   style: "currency",
                   currency: "BRL"
               }).format(summary.total)}</strong>
-      </div>
+      </TotalContainer>
     </Container>
   );
 }
