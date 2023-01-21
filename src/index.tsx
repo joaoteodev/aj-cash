@@ -15,22 +15,22 @@ createServer({
   seeds(server) {
     server.db.loadData({
       transactions: [
-        {
-          id: 1,
-          title: "Freelas Website",
-          type: "deposit",
-          Category: "Dev",
-          amount: 6000,
-          createAt: new Date("2023-01-19 05:07:23"),
-        },
-        {
-          id: 2,
-          title: "Celular",
-          type: "withdraw",
-          Category: "Compras",
-          amount: 2000,
-          createAt: new Date("2023-01-19 05:08:23"),
-        },
+        // {
+        //   id: 1,
+        //   title: "Freelas Website",
+        //   type: "deposit",
+        //   category: "Dev",
+        //   amount: 6000,
+        //   createdAt: new Date("2023-01-19 05:07:23"),
+        // },
+        // {
+        //   id: 2,
+        //   title: "Celular",
+        //   type: "withdraw",
+        //   category: "Compras",
+        //   amount: 2000,
+        //   createdAt: new Date("2023-01-19 05:08:23"),
+        // },
       ]
     })
   },

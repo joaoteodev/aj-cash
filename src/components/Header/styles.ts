@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   background: var(--blue);
-`
+`;
 
 export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
 
-  padding: 2rem 2rem 12rem;
-  display:flex;
+  padding: 2rem 2rem 11rem;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 
@@ -25,7 +25,7 @@ export const Content = styled.div`
 
     &:hover {
       filter: brightness(0.9);
-      box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .1);
+      box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.1);
     }
   }
-`
+`;

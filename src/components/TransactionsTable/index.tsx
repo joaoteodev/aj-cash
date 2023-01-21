@@ -1,26 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
-import { TransactionsContext } from "../../transactionsContext";
+import { useTransactions } from "../../hooks/useTransactions";
+
+import removeImg from "../../assets/close.svg"
+
 import { Container } from "./styles";
 
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createAt: string;
-}
-
 export function TransactionsTable() {
-  const [transactions, setTransactions] = useState<Transaction[]>([])
-  const data = useContext(TransactionsContext);
-
-
-  useEffect(() => {
-    api.get('transactions')
-      .then(response => setTransactions(response.data.transactions))
-  }, [])
+  const { transactions, deleteTransaction } = useTransactions();
+  
  
   return (
     <Container>
@@ -44,9 +30,13 @@ export function TransactionsTable() {
               }).format(transaction.amount)}</td>
               <td>{transaction.category}</td>
               <td>
-              {new Intl.DateTimeFormat("pt-BR").format(new Date(
-                transaction.createAt
-                ))}</td>
+              {new Intl.DateTimeFormat("pt-BR").format(
+                new Date(transaction.createdAt)
+                )}
+              </td>
+              <td onClick={() => deleteTransaction(transaction.id)} className="remove-transaction">
+                <img src={ removeImg } alt="Remover transação"/>
+              </td>
           </tr>
           ))}
         </tbody>

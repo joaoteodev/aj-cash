@@ -15,6 +15,10 @@ export const Container = styled.div`
       line-height: 1.5rem;
     }
 
+    tr {
+      position: relative;
+    }
+
     td {
       padding: 1rem 2rem;
       border: 0;
@@ -33,6 +37,18 @@ export const Container = styled.div`
       &.withdraw {
         color: var(--red);
       }
+
+      &.remove-transaction {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        background: none;
+        transition: filter 0.3s;
+
+        &:hover {
+          filter: brightness(0.7);
+        }
+      }
     }
   }
-`
+`;
